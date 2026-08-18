@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#172a33">
+
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+    <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    {% unless page.photo_credit == false %}
+      <meta property="og:image" content="{{ '/images/ku-leuven-library.jpg' | absolute_url }}">
+      <meta name="twitter:card" content="summary_large_image">
+    {% endunless %}
+
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body class="{{ page.body_class }}">
+    <a class="skip-link" href="#main-content">Skip to conference information</a>
+    {{ content }}
+    {% include footer.html %}
+  </body>
+</html>

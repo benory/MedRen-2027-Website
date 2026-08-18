@@ -1,0 +1,11 @@
+title: MedRen Leuven 2027
+description: Medieval and Renaissance Music Conference, 5–9 July 2027, KU Leuven.
+url: "https://medren2027.org"
+baseurl: ""
+github_username: benory/MedRen-2027-Website
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
