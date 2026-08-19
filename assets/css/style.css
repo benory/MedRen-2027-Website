@@ -315,7 +315,8 @@ a {
 
 .photo-credit,
 .photo-credit a,
-.website-credit {
+.website-credit,
+.website-credit a {
   color: #85827d;
   font-weight: 400;
 }
@@ -325,14 +326,17 @@ a {
   margin: 0;
 }
 
-.photo-credit a {
+.photo-credit a,
+.website-credit a {
   text-decoration: underline;
   text-decoration-color: rgba(133, 130, 125, 0.36);
   text-underline-offset: 2px;
 }
 
 .photo-credit a:hover,
-.photo-credit a:focus-visible {
+.photo-credit a:focus-visible,
+.website-credit a:hover,
+.website-credit a:focus-visible {
   color: #66635f;
   text-decoration-color: currentColor;
 }
