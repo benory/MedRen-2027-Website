@@ -314,12 +314,14 @@ a {
 }
 
 .photo-credit,
-.photo-credit a {
+.photo-credit a,
+.website-credit {
   color: #85827d;
   font-weight: 400;
 }
 
-.photo-credit {
+.photo-credit,
+.website-credit {
   margin: 0;
 }
 
