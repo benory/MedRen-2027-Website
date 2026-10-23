@@ -7,45 +7,88 @@ photo_credit: true
 ---
 
 <header class="hero" id="top">
-  <div class="hero-shade" aria-hidden="true"></div>
-
+  <div class="nav-surface">
   <div class="hero-nav">
     <a class="wordmark" href="#top" aria-label="MedRen Leuven 2027, home">
-      <span class="wordmark-name">MedRen</span>
-      <span class="wordmark-place">Leuven 2027</span>
+      <img class="nav-logo" src="{{ '/images/logo.png' | relative_url }}" alt="MedRen Leuven 2027" width="2014" height="780">
     </a>
 
     <nav aria-label="Page sections">
+      <a href="#call-for-papers">Call for papers</a>
       <a href="#venue">Venue</a>
       <a href="#dates">Dates</a>
     </nav>
   </div>
 
-  <div class="hero-content">
-    <p class="eyebrow">Medieval and Renaissance Music Conference</p>
-    <h1>MedRen Leuven 2027</h1>
-    <p class="conference-date">
-      <time datetime="2027-07-05">5</time>–<time datetime="2027-07-09">9 July 2027</time>
-    </p>
   </div>
 
-  <a class="details-link" href="#main-content">
-    Conference details
-    <span aria-hidden="true">↓</span>
-  </a>
+  <div class="hero-photo">
+  <div class="hero-content">
+    <h1>MedRen Leuven 2027</h1>
+  </div>
+  </div>
 </header>
 
 <main id="main-content" class="page-content">
   <div class="content-wrap">
     <div class="intro-row">
-      <p class="section-label">Leuven · Belgium</p>
       <p class="intro">
-        The Medieval and Renaissance Music Conference<br class="intro-break">
-        comes to KU Leuven in the summer of 2027.
+        The Medieval and Renaissance Music Conference
+        comes to KU Leuven, Belgium, from 5–9 July 2027.
       </p>
     </div>
 
     <div class="information-list">
+      <section class="info-section" id="call-for-papers" aria-labelledby="cfp-heading">
+        <h2 id="cfp-heading">Call for papers</h2>
+        <nav class="cfp-toc" aria-label="Call for papers contents">
+          <ul>
+            <li><a href="#cfp-dates">Key dates</a></li>
+            <li><a href="#cfp-themes">Themes</a></li>
+            <li><a href="#cfp-formats">Presentation formats</a></li>
+            <li><a href="#cfp-submit">How to submit</a></li>
+            <li><a href="#cfp-contact">Contact</a></li>
+          </ul>
+        </nav>
+        <dl class="key-dates" id="cfp-dates">
+          <div><dt>Submission deadline</dt><dd><time datetime="2027-01-17">Sunday, 17 January 2027</time></dd></div>
+          <div><dt>Notification of acceptance</dt><dd><time datetime="2027-03-08">Monday, 8 March 2027</time></dd></div>
+        </dl>
+
+        <p>MedRen Leuven 2027 is organised by David J. Burn, Antonio Chemotti, and Bart Demuyt, in collaboration with the Department of Musicology at KU Leuven, the Alamire Foundation, and the Royal Library of Belgium (KBR).</p>
+        <p id="cfp-themes">As in previous years, MedRen welcomes proposals on a wide range of topics relating to medieval and Renaissance music. For the 2027 edition, we would also like to particularly encourage submissions engaging with a number of themes connected to the research interests and activities of the organising partners. These themes include:</p>
+        <ul class="themes">
+          <li><strong>Music for the Dead</strong> — music, death, mourning, and commemoration</li>
+          <li><strong>Chansons and Chansonniers</strong> — repertories, sources, transmission, performance, and reception</li>
+          <li><strong>Musical Life in the Low Countries in a Global Context</strong> — musical practices, communities, networks, and the circulation of musicians, repertories, and ideas</li>
+          <li><strong>Technological Approaches to Music and Music Sources</strong> — digitisation, databases, digital editions, virtual acoustics, computational methods, and other technological approaches to the study, documentation, preservation, and interpretation of music and musical sources</li>
+          <li><strong>Music Sources at the Royal Library of Belgium (KBR)</strong> — manuscripts, prints, provenance studies, and new approaches to the study of musical sources</li>
+          <li><strong>Museums, Collections, and the Curatorship of Musical Heritage</strong> — the collecting, preservation, display, and mediation of musical objects and heritage, as well as curatorial practices and new approaches to presenting music and its histories to diverse audiences</li>
+        </ul>
+        <p>These themes are intended as points of departure rather than exclusive categories, and proposals on other topics relating to medieval and Renaissance music are equally welcome.</p>
+
+        <h3 id="cfp-formats">Presentation formats</h3>
+        <p>Proposals may be submitted in the following formats:</p>
+        <div class="formats-wrap" role="region" aria-label="Presentation formats and abstract requirements" tabindex="0">
+          <table class="formats">
+            <thead><tr><th scope="col">Format</th><th scope="col">Duration</th><th scope="col">Abstract requirements</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Posters</th><td>Dedicated poster session</td><td>Maximum 250 words.</td></tr>
+              <tr><th scope="row">Individual papers</th><td>20 minutes, followed by up to 10 minutes of discussion and questions</td><td>Maximum 250 words.</td></tr>
+              <tr><th scope="row">Paired papers</th><td>60 minutes in total, including discussion and questions</td><td>Overall abstract: maximum 200 words. Individual contributions: maximum 150 words each.</td></tr>
+              <tr><th scope="row">Themed sessions</th><td>90 minutes</td><td>Overall abstract: maximum 200 words. Individual contributions: maximum 150 words each. Please also provide the name of the chair.</td></tr>
+              <tr><th scope="row">Roundtables</th><td>90 minutes</td><td>Maximum 250 words.</td></tr>
+              <tr><th scope="row">Lecture-recitals</th><td>30 or 60 minutes</td><td>Maximum 250 words.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="cfp-submit">How to submit</h3>
+        <p>Please submit your abstract at <a href="https://www.conftool.org/medren2027/">www.conftool.org/medren2027/</a>. The submission platform opens on <strong><time datetime="2026-10-26">Monday, 26 October 2026</time></strong>.</p>
+
+        <h3 id="cfp-contact">Contact</h3>
+        <p>Please contact the organisers at <a href="mailto:info-medren2027@kuleuven.be">info-medren2027@kuleuven.be</a>. Questions regarding the abstract submission process, as well as the registration tools, should be sent to the Conference Office at <a href="mailto:medren2027@kuleuven.be">medren2027@kuleuven.be</a>.</p>
+      </section>
       <section class="info-section" id="venue" aria-labelledby="venue-heading">
         <div>
           <h2 id="venue-heading">Venue</h2>
@@ -72,6 +115,5 @@ photo_credit: true
       </section>
     </div>
 
-    <p class="more-information">Further information will be announced here.</p>
   </div>
 </main>

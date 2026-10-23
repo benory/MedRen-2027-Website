@@ -48,26 +48,26 @@ a {
 }
 
 .hero {
-  position: relative;
-  min-height: min(610px, 68svh);
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  padding: 0 max(24px, calc((100vw - var(--content-width)) / 2));
-  background-image: url("../../images/ku-leuven-library.jpg");
-  background-position: center bottom;
-  background-size: cover;
-  color: #fffdf8;
-  isolation: isolate;
+  background: url("../../images/ku-leuven-library.jpg") center 97% / cover;
+  color: var(--ink);
 }
 
-.hero-shade {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(14, 45, 60, 0.42) 0%, rgba(14, 45, 60, 0.16) 54%, rgba(14, 45, 60, 0.06) 100%),
-    linear-gradient(0deg, rgba(14, 45, 60, 0.24) 0%, transparent 46%);
+.nav-surface {
+  background: rgba(255, 250, 241, 0.6);
+}
+
+.hero-photo {
+  min-height: clamp(230px, 24vw, 330px);
+  display: grid;
+  color: #fffdf8;
+  text-shadow: 0 2px 5px rgba(14, 35, 45, 0.7);
+}
+
+.hero-nav,
+.hero-content {
+  width: calc(100% - 48px);
+  max-width: var(--content-width);
+  margin: 0 auto;
 }
 
 .hero-nav {
@@ -76,7 +76,7 @@ a {
   justify-content: space-between;
   gap: 28px;
   min-height: 92px;
-  border-bottom: 1px solid var(--white-line);
+  border-bottom: 1px solid var(--line);
 }
 
 .wordmark {
@@ -102,14 +102,17 @@ a {
 
 .hero-nav nav {
   display: flex;
-  gap: 26px;
+  width: 35%;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .hero-nav nav a {
   position: relative;
   padding: 10px 0;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 650;
+  color: var(--ink);
   text-decoration: none;
 }
 
@@ -131,9 +134,47 @@ a {
   transform: scaleX(1);
 }
 
+.hero-nav nav a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
 .hero-content {
   align-self: center;
   padding: 50px 0;
+}
+
+.hero .hero-content h1 {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.hero-content .eyebrow,
+.hero-content h1 {
+  position: relative;
+  isolation: isolate;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.hero-content .eyebrow::before,
+.hero-content h1::before {
+  content: "";
+  position: absolute;
+  inset: -14px -22px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 250, 241, 0.88) 5%,
+    rgba(255, 250, 241, 0.88) 95%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
+  mask-image: linear-gradient(transparent, #000 25%, #000 75%, transparent);
 }
 
 .eyebrow {
@@ -155,7 +196,6 @@ a {
   letter-spacing: -0.055em;
   line-height: 0.92;
   white-space: nowrap;
-  text-shadow: 0 2px 22px rgba(9, 23, 30, 0.18);
 }
 
 .conference-date {
@@ -171,13 +211,11 @@ a {
   justify-content: space-between;
   gap: 20px;
   width: min(310px, 100%);
-  margin-bottom: 28px;
+  margin: 0 24px 28px max(24px, calc((100vw - var(--content-width)) / 2));
   padding: 15px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.36);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
-  background: rgba(255, 250, 241, 0.12);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: rgba(14, 35, 45, 0.12);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -188,11 +226,11 @@ a {
 
 .details-link:hover,
 .details-link:focus-visible {
-  background: rgba(255, 250, 241, 0.22);
+  background: rgba(40, 75, 99, 0.06);
 }
 
 .page-content {
-  padding: 60px 24px 94px;
+  padding: 32px 24px 94px;
   background:
     radial-gradient(circle at 88% 12%, rgba(40, 75, 99, 0.06), transparent 31%),
     var(--paper);
@@ -205,11 +243,7 @@ a {
 }
 
 .intro-row {
-  display: grid;
-  grid-template-columns: 110px minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
-  margin-bottom: 52px;
+  margin-bottom: 30px;
 }
 
 .section-label {
@@ -222,7 +256,7 @@ a {
 }
 
 .intro {
-  max-width: 900px;
+  max-width: none;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(28px, 3vw, 38px);
@@ -374,11 +408,14 @@ a {
 }
 
 @media (max-width: 760px) {
-  .hero {
-    min-height: min(560px, 70svh);
-    padding-right: 20px;
-    padding-left: 20px;
-    background-position: center bottom;
+  .hero-nav,
+  .hero-content {
+    width: calc(100% - 40px);
+  }
+
+  .details-link {
+    margin-left: 20px;
+    max-width: calc(100% - 40px);
   }
 
   .hero-nav {
@@ -386,11 +423,12 @@ a {
   }
 
   .hero-nav nav {
+    width: 100%;
     gap: 16px;
   }
 
   .hero-nav nav a {
-    font-size: 13px;
+    font-size: 17px;
   }
 
   .wordmark-place {
@@ -411,13 +449,11 @@ a {
   }
 
   .page-content {
-    padding: 50px 20px 76px;
+    padding: 28px 20px 76px;
   }
 
   .intro-row {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
   }
 
   .intro-break {
@@ -458,4 +494,171 @@ a {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Conference identity and call for papers. */
+.nav-logo {
+  display: block;
+  width: 210px;
+  height: auto;
+}
+
+.info-section h3 {
+  margin: 36px 0 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+#call-for-papers,
+#venue,
+#dates {
+  padding-top: 30px;
+}
+
+#call-for-papers p + p {
+  margin-top: 20px;
+}
+
+#call-for-papers p,
+#call-for-papers .themes {
+  max-width: none;
+}
+
+.cfp-toc {
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.cfp-toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#call-for-papers .cfp-toc a {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid rgba(40, 75, 99, 0.3);
+  border-radius: 4px;
+  background: rgba(40, 75, 99, 0.04);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+#call-for-papers .cfp-toc a:hover,
+#call-for-papers .cfp-toc a:focus-visible {
+  background: var(--blue);
+  color: var(--paper);
+}
+
+#call-for-papers .cfp-toc a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+#call-for-papers [id] {
+  scroll-margin-top: 24px;
+}
+
+.key-dates {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(40, 75, 99, 0.06);
+  border-left: 3px solid var(--blue);
+  line-height: 1.6;
+}
+
+.key-dates div + div { margin-top: 12px; }
+.key-dates dt { font-weight: 650; }
+.key-dates dd { margin: 0; }
+
+.themes {
+  max-width: 800px;
+  padding-left: 40px;
+  margin: 24px 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.themes li + li { margin-top: 16px; }
+
+.formats-wrap { overflow-x: auto; margin-top: 24px; }
+.formats {
+  width: 100%;
+  min-width: 580px;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.6;
+}
+.formats th, .formats td {
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.formats thead { background: rgba(40, 75, 99, 0.06); }
+.formats tbody th { width: 21%; font-weight: 600; }
+.formats td:nth-child(2) { width: 30%; }
+#call-for-papers a { color: var(--blue); text-underline-offset: 3px; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  .hero-nav { flex-wrap: wrap; gap: 8px 20px; padding: 12px 0; }
+  .nav-logo { width: 160px; }
+  .hero-nav nav { flex-wrap: wrap; }
+  .themes { font-size: 16px; }
+  .key-dates { padding: 16px; }
+}
+
+@media (max-width: 760px) {
+  .hero-nav { min-height: 0; gap: 2px 16px; padding: 8px 0; }
+  .nav-logo { width: 130px; }
+  .hero-nav nav a { padding: 8px 0; font-size: 15px; }
+  .hero-photo { min-height: 160px; }
+  .hero-content { padding: 32px 0; }
+  .hero .hero-content h1 {
+    font-size: clamp(25px, 8.2vw, 46px);
+    line-height: 1.05;
+  }
+  .hero-content h1::before { inset: -10px -12px; }
+  .page-content { padding: 22px 20px 40px; }
+  .intro { font-size: 24px; line-height: 1.15; }
+  .intro-row { margin-bottom: 22px; }
+  .info-section { padding: 24px 0 28px; }
+  #call-for-papers, #venue, #dates { padding-top: 24px; }
+  .info-section h2 { font-size: 28px; margin-bottom: 16px; }
+  .info-section h3 { font-size: 24px; margin: 26px 0 12px; }
+  .info-section p, .info-section address, .themes { line-height: 1.5; }
+  #call-for-papers p + p { margin-top: 16px; }
+  .cfp-toc { margin-bottom: 20px; }
+  .cfp-toc ul { gap: 8px; }
+  #call-for-papers .cfp-toc a { padding: 7px 10px; font-size: 13px; }
+  .key-dates { padding: 12px 14px; margin-bottom: 20px; font-size: 15px; }
+  .key-dates div + div { margin-top: 8px; }
+  .themes { padding-left: 26px; margin: 18px 0; }
+  .themes li + li { margin-top: 12px; }
+  .formats-wrap { margin-top: 16px; }
+  .formats { min-width: 0; font-size: 15px; line-height: 1.5; }
+  .formats thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .formats tbody, .formats tr, .formats th, .formats td { display: block; }
+  .formats tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .formats tbody th, .formats td:nth-child(2), .formats td {
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+  .formats tbody th { margin-bottom: 4px; color: var(--blue); }
+  .formats td + td { margin-top: 4px; }
+  .formats td:last-child::before { content: "Abstract: "; font-weight: 600; }
 }
